@@ -43,6 +43,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 using System;
+using System.Globalization;
 
 namespace SharpYaml.Schemas
 {
@@ -128,7 +129,7 @@ namespace SharpYaml.Schemas
 									@"(Z|([-+])([0-9]{1,2})(:([0-9][0-9]))?)" +
 									@")?" +
 									@")?",
-									match => DateTime.Parse(match.Value),
+									match => DateTime.Parse(match.Value, CultureInfo.InvariantCulture),
 									datetime =>
 										{
 											var z = datetime.ToString("%K");
